@@ -19,9 +19,9 @@
 
 		<div class="card">
 			<h1 class="center">Summary</h1>
-			<p>
-				
-			</p>
+			{% for ele in list %}
+			<p class="center ab">{{ele.summary}}</p>
+			{% endfor %}
 		</div>
 	</div>
 	<div class="card-wrapper wrap1">

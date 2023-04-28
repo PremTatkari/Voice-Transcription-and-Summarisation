@@ -13,8 +13,8 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
 r = sr.Recognizer()
 
-text1 = """There are many techniques available to generate extractive summarization
-to keep it simple, I will be using an unsupervised learning approach to
+text1 = """There are many techniques available to generate extractive summarization.
+To keep it simple, I will be using an unsupervised learning approach to
 find the sentences similarity and rank them. Summarization can be
 defined as a task of producing a concise and fluent summary while
 preserving key information and overall meaning. One benefit of this will
@@ -25,7 +25,7 @@ similarity between two non-zero vectors of an inner product space that
 measures the cosine of the angle between them. Its measures cosine of
 the angle between vectors. The angle will be 0 if sentences are similar.""" 
 
-text = """"""
+text = ""
 list = []
 go = True
 
@@ -69,9 +69,12 @@ def sumarizer():
         if (sentence in sentenceValue) and (sentenceValue[sentence] > (1.2 * average)):
             summary += sentence
     print("\nSummary: " + summary)
+    list.append({"summary": summary})
     return
 
 def transcript():
+    global text
+    text = ""
     MyText = ""
     print("Listening")
     list.clear()       
@@ -79,7 +82,7 @@ def transcript():
     while go:    
         try:
             with sr.Microphone() as source2:
-                    
+            
                 r.adjust_for_ambient_noise(source2, duration=0.2)
                 audio2 = r.listen(source2)
                 MyText = r.recognize_google(audio2)
@@ -88,11 +91,8 @@ def transcript():
                 print(MyText)
                 list.append({"text": MyText})
                 text = text + MyText
-                sleep(1)
-                
-                
+                sleep(1)  
         except:
             continue
-    sumarizer()
 
 
