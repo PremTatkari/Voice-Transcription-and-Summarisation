@@ -60,8 +60,13 @@ def sumarizer():
     sumValues = 0
     for sentence in sentenceValue:
         sumValues += sentenceValue[sentence]
-       
-    average = int(sumValues / len(sentenceValue))
+
+    
+    try:    
+        average = int(sumValues / len(sentenceValue))
+    
+    except:
+        print("Not enough sentences")
 
     summary = ""
     
