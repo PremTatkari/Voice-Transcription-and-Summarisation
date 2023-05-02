@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <a href="/user/logout" class="btn logout">Log Out</a>
+
+	<p class="center">You are currently logged in.</p>
+	<div class="card-wrapper">
+		
+        
+        <div>
+            <a href="/main/transcript" class="btn transcript record">Record</a>
+        </div>
+		<div>
+            <a href="/main/transcriptstop" class="btn transcript t">Transcript</a>
+        </div>
+	</div>
+{% endblock %}
